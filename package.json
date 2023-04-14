@@ -8,7 +8,7 @@
   "scripts": {
     "main": "tsc  & node ./dist/main",
     "start": "npx nodemon ./src/main.ts",
-    "test": "tsc  & jest ./test/main"
+    "test": "tsc  & jest ./test/**"
   },
   "dependencies": {
     "@types/jest": "^29.5.0",

@@ -1,24 +1,21 @@
-import pgp from "pg-promise";
-import dotenv from "dotenv";
-dotenv.config();
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const pg_promise_1 = __importDefault(require("pg-promise"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 console.log("START");
-
-const connection = pgp()(
-  "postgres://postgres:duppoe@localhost:5432/cleanarchdb"
-);
+const connection = (0, pg_promise_1.default)()("postgres://postgres:duppoe@localhost:5432/cleanarchdb");
 const query = connection
-  .query("select * from products.product_transaction")
-  .then((res) => console.log(res));
-
+    .query("select * from products.product_transaction")
+    .then((res) => console.log(res));
 console.log("END", process.env.DB_URI);
-
-
-/* 
+/*
 createOrder()
  */
-
-/* 
+/*
 
 1 - Deve criar um pedido com 3 produtos (com descrição, preço e quantidade) e calcular o valor total
 2 - Deve criar um pedido com 3 produtos, associar um cupom de desconto e calcular o total (percentual sobre o total do pedido)
